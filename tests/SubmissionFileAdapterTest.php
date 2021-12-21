@@ -10,7 +10,7 @@ class SubmissionFileAdapterTest extends PKPTestCase
         $path = './assets/testSample.csv';
         $name = 'TestSample';
 
-        $submissionFileAdapter = new SubmissionFileAdapter($path, $name, true);
+        $submissionFileAdapter = new SubmissionFileAdapter($path, $name, 7, true);
         $this->assertEquals($path, $submissionFileAdapter->getPath());
     }
 
@@ -19,7 +19,7 @@ class SubmissionFileAdapterTest extends PKPTestCase
         $path = './assets/testSample.csv';
         $name = 'TestSample';
 
-        $submissionFileAdapter = new SubmissionFileAdapter($path, $name, true);
+        $submissionFileAdapter = new SubmissionFileAdapter($path, $name, 7, true);
         $this->assertEquals($name, $submissionFileAdapter->getName());
     }
 }

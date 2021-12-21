@@ -1,6 +1,7 @@
 <?php
 
 import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.submission.SubmissionFile');
 import('plugins.generic.dataverse.classes.creators.SubmissionFileFactory');
 
 class SubmissionFileFactoryTest extends PKPTestCase
@@ -12,6 +13,7 @@ class SubmissionFileFactoryTest extends PKPTestCase
 		$submissionFile->setData('path', '/assets/testSample.csv');
 		$submissionFile->setData('name', 'sampleFileForTests.csv');
 		$submissionFile->setData('publishData', true);
+		$submissionFile->setData('genreId', 7);
 
         $factory = new SubmissionFileFactory();
         $submissionFileAdapter = $factory->build($submissionFile);

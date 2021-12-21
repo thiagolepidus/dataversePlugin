@@ -1,26 +1,32 @@
 <?php
-import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.tests.DatabaseTestCase');
 import('plugins.generic.dataverse.classes.DataverseDAO');
 import('lib.pkp.classes.db.DAO');
 
-class DataverseDAOTest extends PKPTestCase
+class DataverseDAOTest extends DatabaseTestCase
 {
     private int $contextId;
     private string $dataverseServer;
     private string $dataverse;
     private string $apiToken;
+
     private DataverseDao $dataverseDAO;
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         $this->contextId = 1;
         $this->dataverseServer = 'https://demo.dataverse.org';
         $this->dataverse = 'https://demo.dataverse.org/dataverse/dataverseDeExemplo';
         $this->apiToken = 'randomToken';
         $this->dataverseDAO =  new DataverseDAO();
-
-        parent::setUp();
     }
+
+    protected function getAffectedTables(): array
+    {
+		return array('plugin_settings');
+	}
 
     public function testCredentialsAddedInDB(): void
     {

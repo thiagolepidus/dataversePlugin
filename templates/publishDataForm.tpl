@@ -11,3 +11,12 @@
 {fbvFormSection list="true" title="Dataverse Plugin" translate=false}
 	{fbvElement type="checkbox" label="plugins.generic.dataverse.submissionFileMetadata.publishData" id="publishData" checked=false}
 {/fbvFormSection}
+
+<script>
+	$(function() {ldelim}
+		$('input[id="publishData"]').next('a').on('click', (e)=> {
+			window.open($dataverseTermsOfUseUrl, 'Window', 'width=600,height=550,screenX=100,screenY=100,toolbar=0,resizable=1,scrollbars=1');
+			e.preventDefault();
+		})
+	{rdelim});
+</script>
